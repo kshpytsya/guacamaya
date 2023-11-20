@@ -10,7 +10,7 @@ jobs:
         python-version: '3.11'
         cache: 'pip' # caching pip dependencies
     - run: pip install pre-commit
-    - uses: actions/cache@v4
+    - uses: actions/cache@v3
       with:
         path: ~/.cache/pre-commit/
         key: pre-commit-4|${{ env.pythonLocation }}|${{ hashFiles('.pre-commit-config.yaml') }}
