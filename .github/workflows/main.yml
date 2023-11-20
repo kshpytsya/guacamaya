@@ -15,3 +15,17 @@ jobs:
         path: ~/.cache/pre-commit/
         key: pre-commit-4|${{ env.pythonLocation }}|${{ hashFiles('.pre-commit-config.yaml') }}
     - run: pre-commit run --show-diff-on-failure --color=always --all-files
+  "tests":
+    strategy:
+      matrix:
+        pyver: ['3.11']
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.pyver }}
+        cache: 'pip' # caching pip dependencies
+    - run: pip install nox
+    - run: nox
