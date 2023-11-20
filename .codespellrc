@@ -1,0 +1,3 @@
+[codespell]
+# https://github.com/codespell-project/codespell
+ignore-regex = .*SPELL-IGNORE$

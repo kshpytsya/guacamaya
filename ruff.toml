@@ -1,0 +1,26 @@
+select = [
+    "ALL",
+]
+ignore = [
+    "COM812",
+    "ISC001",
+]
+target-version = "py311"
+force-exclude = true
+src = ["src"]
+line-length = 100
+
+[format]
+quote-style = "double"
+indent-style = "space"
+
+[isort]
+force-single-line = true
+lines-after-imports = 2
+
+[lint.pydocstyle]
+convention = "google"
+
+[per-file-ignores]
+"noxfile.py" = ["D", "ANN", "ERA"]
+"tests/*" = ["D", "INP001"]
